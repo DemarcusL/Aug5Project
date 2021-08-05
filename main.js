@@ -21,17 +21,24 @@
 // Use JavaScript prompts for entering Reflections into your journal
 // Implement the JavaScript necessary to process and validate the submitted data
 // Use JavaScript to create Reflection object instances and display them in the console AND browser
-let journalEntries = [];// it asks for this array in 5
+let journalEntries = [ // it asks for this array in 5
 
+
+];
+
+// This is the event trigger for my button in the html
 let myButton = document.getElementById("button")
-
+// this is its listener for that button
 myButton.addEventListener('button', main);
 
+
+
 function main() {
+    // I have my functions here to streamline when events happen
     // i am setting my object props w the data from my functions
     // I am geting the returned value from my functions and setting them here in 
+    // we need to push the values into an object literal, than push that literal into an array
     let creationDate = date();
-    // date();
     console.log(`Your creationDate prop is set to : ${creationDate}`);
 
     let confidenceLevel = confidence();
@@ -44,6 +51,7 @@ function main() {
     // console.log();
 }
 
+
 // just setting my html div i made
 let containerDiv = document.getElementById('journalPrint');
 
@@ -51,23 +59,6 @@ let userName = prompt('Please , Enter your name to begin .');
 // alert(` Welcome ${userName} to your Day's Journal ! `); 
 alert(` Welcome ${userName} , Please press the button on the page to begin a journal entry! `);
 console.log(` Your name is ${userName}`);
-
-
-// we will need instances for object literals for our journal entry
-
-
-// let journalEntry = {
-//     date: ,
-//     confidence: ,
-
-
-
-// }
-
-
-
-
-
 
 
 // Creation Date - Prompt for a date
@@ -158,6 +149,14 @@ function postR() {
     }
 
     
+}
+
+// lets create an object literal
+// we will need instances for object literals for our journal entry
+let journalObject = {
+    date: creationDate,
+    confidence: confidenceLevel,
+    journal: journalEnt
 }
 
 
