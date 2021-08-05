@@ -18,6 +18,19 @@
 // Implement the JavaScript necessary to process and validate the submitted data
 // Use JavaScript to create Reflection object instances and display them in the console AND browser
 
+// we will need instances for object literals for our journal entry
+function journalEntryObject( )
+
+
+const journalEntryObject = {
+    date: " ",
+    confidence: " ",
+    journalEntry: " "
+
+}
+
+
+
 // Creation Date - Prompt for a date
 // I will need a prompt asking for the user to input a date 
 // we will set a variable for the date enter
@@ -25,46 +38,67 @@
 
 let userName = prompt('Please , Enter your name to begin .')
 // alert(` Welcome ${userName} to your Day's Journal ! `); 
+console.log(userName);
 
 let date = prompt('Enter The Date Please (MM/DD/YYYY)');
 // alert( ` Awesome , you entered ${date} for today's date ! `)
+console.log(date);
 
-// this will need to be in a while loop in order to meet conditionals
+// Confidence Level - Prompt the user to specify Low, Medium, and High confidence level (your implementation should handle any entry regardless of upper or lowercase and any entry that does not match one of the 3 options should be rejected with an error message alert and the user should be prompted to re-enter their confidence level value)
+// this will need to be in a while loop in order to meet conditionals. I
+
+// let userLevel = ()
 let confidenceLevel = true;
-// i need to set my conditionals here for its knows when to exit the loop and what to do when the value is true
-while (confidenceLevel) {
+// i need a while loop to run the questions for low, med, high
+while (confidenceLevel == true) {
+    //I want this inside the loop to continuous be asked this prompt until it is broken with Quit or cancel
+    let userTextInput = prompt(` Enter: Low / Medium / High : for how you are feeling ${userName} on ${date} OR Enter Q to stop.`);
+    //This is where we are setting this conditional for what ever string we are entering
+    // because on line 90 we 
+    if (userTextInput === 'Low' || userTextInput === 'low') {
+        // console.log(userTextInput);       
+        confidenceLevel = false;
+        alert(` I'm sorry you feel that way ${userName} ! `)
 
-    let low = prompt(` Enter: Low / Medium / High for how you are feeling ${userName} on ${date} .`); 
-    // i need to set conditionals
-    if (low ===  )
-
-
-
-
-    // let confidenceLevel = prompt(` Enter: Low / Medium / High for how you are feeling ${userName} on ${date} .`).toLowerCase;
-    // if (confidenceLevel === "low") {
-    //     alert(`Oh My, I'm sorry you feel this way ${userName}`);
-    // }
-    // else {
-    //     alert
-    // }
+    }
+    else if (userTextInput === 'Medium' || userTextInput === 'medium') {
+        // console.log(userTextInput);
+        confidenceLevel = false;
+        alert(` Okay, you're doing decent ${userName} ! `)
+    }
+    else if (userTextInput === 'High' || userTextInput === 'high') {
+        // console.log(userTextInput);
+        confidenceLevel = false;
+        alert(` I'm sorry you feel that way ${userName} ! `)
+    }
+    //I want this loop broken when entering Q
+    //we have to change the userTextInput boolean to fasle to break the loop from true
+    else if (userTextInput === 'Q' || userTextInput === "Quit" || userTextInput === "quit" || userTextInput === "q") {
+        console.log(userTextInput);
+        // console.log('You Quit Your Entry');
+        prompt(`You Quit Your Entry Attempt ${userName}, are you sure about this? `);
+        confidenceLevel = false;
+    }
+    // If none of the booleans are met, we will get this back in console
+    else  {
+    prompt('Error, Try AGain');
+    console.log('Try Again, Error');
+    
+    }
 }
-
-
-
-
-
-
 
 //============================================================//
 
 
-// Confidence Level - Prompt the user to specify Low, Medium, and High confidence level (your implementation should handle any entry regardless of upper or lowercase and any entry that does not match one of the 3 options should be rejected with an error message alert and the user should be prompted to re-enter their confidence level value)
-
-// Describe your confidence level in your skills at the time of posting
-
 // Journal Entry - Prompt the user for the text for your reflection
 
+let journalEntry = prompt( ` Okay ${userName} , Reflect on why you what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! ` );
+// console.log(journalEntry);
 // Enter in as much text as necessary about what you learned, how you felt, and plans for the upcoming days
 
-// Post Reflection - Use a confirm dialog box to confirm the post/record your journal entry (if the user selects OK, add post to the array, otherwise if they click cancel start over with prompts and entry
+//============================================================//
+
+// Post Reflection - Use a confirm dialog box to confirm the post/record your journal entry (if the user selects OK, add post to the array, otherwise if they click cancel start over with prompts and entry)
+
+let pos
+
