@@ -30,6 +30,10 @@ let journalEntries = [ // it asks for this array in 5
 
 ];
 
+let journalObjectArray = [
+
+];
+
 // This is the event trigger for my button in the html
 let myButton = document.getElementById("button")
 // this is its listener for that button
@@ -44,6 +48,7 @@ function main() {
     // we need to push the values into an object literal, than push that literal into an array
     let creationDate = date();
     console.log(`Your creationDate prop is set to : ${creationDate}`);
+
 
     let confidenceLevel = confidence();
     console.log(`Your confidenceLevel prop is set to : ${confidenceLevel}`);
@@ -141,37 +146,43 @@ function journalEntry() {
 function postR() {
 
     let postReflection = prompt(` Are you ready to post this journal ${userName} ? `).toLowerCase();
-        console.log(postReflection);
-    if ( postReflection === "yes") {
-        // console.log(postReflection);
+    console.log(postReflection);
+    if (postReflection === "yes") {
+        
+
+        newObject(creationDate, confidenceLevel, journalEnt);
+        console.log(journalObjectArray);
     }
     else {
         console.log('error');
     }
 
-    
+
 }
 
 // lets create an object literal
 // we will need instances for object literals for our journal entry
-let journalObject = {
-    date: creationDate,
-    confidence: confidenceLevel,
-    journal: journalEnt
+// we want each new journal entry in an object
+function newObject(creationDate, confidenceLevel, journalEnt) {
+    let journalObject = {
+        dateObjectProperty: creationDate,
+        confidenceObjectProperty: confidenceLevel,
+        journalObjectProperty: journalEnt
+    }
+    return journalObjectArray.push(journalObject);
 }
-
 
 //====== Not tounching this yet ! =====//
 // I want to add my journals to my html container once the user finishes entering date
-// let journalContent = document.createElement('ul')
+let journalContent = document.createElement('ul')
 
-// let journalText = document.createTextNode('');// I want that data added here
+let journalText = document.createTextNode('');// I want that data added here
 
-// //This will take that text and add it to the unordered list
-// journalContent.appendChild(journalText);
+//This will take that text and add it to the unordered list
+journalContent.appendChild(journalText);
 
-// // this will add it to the html div
-// containerDiv.appendChild(journalContent);
+// this will add it to the html div
+containerDiv.appendChild(journalContent);
 
 
 
