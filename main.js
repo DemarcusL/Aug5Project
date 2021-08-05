@@ -18,19 +18,26 @@
 // Implement the JavaScript necessary to process and validate the submitted data
 // Use JavaScript to create Reflection object instances and display them in the console AND browser
 
+let containerDiv = document.getElementById('journalPrint');
+
 // we will need instances for object literals for our journal entry
-function journalEntryObject( )
 
 
-const journalEntryObject = {
-    date: " ",
-    confidence: " ",
-    journalEntry: " "
-
-}
+// let journalEntry = {
+//     date: ,
+//     confidence: ,
 
 
 
+// }
+
+
+
+
+
+
+// i am setting an empty array to put our entries into
+let journalEntries = [];
 // Creation Date - Prompt for a date
 // I will need a prompt asking for the user to input a date 
 // we will set a variable for the date enter
@@ -45,7 +52,8 @@ let date = prompt('Enter The Date Please (MM/DD/YYYY)');
 console.log(date);
 
 // Confidence Level - Prompt the user to specify Low, Medium, and High confidence level (your implementation should handle any entry regardless of upper or lowercase and any entry that does not match one of the 3 options should be rejected with an error message alert and the user should be prompted to re-enter their confidence level value)
-// this will need to be in a while loop in order to meet conditionals. I
+// this will need to be in a while loop in order to meet conditionals. 
+//  i will need to set which confidence level to a variable 
 
 // let userLevel = ()
 let confidenceLevel = true;
@@ -59,6 +67,7 @@ while (confidenceLevel == true) {
         // console.log(userTextInput);       
         confidenceLevel = false;
         alert(` I'm sorry you feel that way ${userName} ! `)
+        
 
     }
     else if (userTextInput === 'Medium' || userTextInput === 'medium') {
@@ -69,7 +78,7 @@ while (confidenceLevel == true) {
     else if (userTextInput === 'High' || userTextInput === 'high') {
         // console.log(userTextInput);
         confidenceLevel = false;
-        alert(` I'm sorry you feel that way ${userName} ! `)
+        alert(` Awesome way to go ${userName} ! `)
     }
     //I want this loop broken when entering Q
     //we have to change the userTextInput boolean to fasle to break the loop from true
@@ -80,10 +89,10 @@ while (confidenceLevel == true) {
         confidenceLevel = false;
     }
     // If none of the booleans are met, we will get this back in console
-    else  {
-    prompt('Error, Try AGain');
-    console.log('Try Again, Error');
-    
+    else {
+        prompt('Error, Try AGain');
+        console.log('Try Again, Error');
+
     }
 }
 
@@ -91,14 +100,48 @@ while (confidenceLevel == true) {
 
 
 // Journal Entry - Prompt the user for the text for your reflection
+// let journalEntries = [
 
-let journalEntry = prompt( ` Okay ${userName} , Reflect on why you what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! ` );
+// ];
+
+let journalEntry = prompt(` Okay ${userName} , Reflect on why you what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! `);
 // console.log(journalEntry);
 // Enter in as much text as necessary about what you learned, how you felt, and plans for the upcoming days
+
+// what do I do with what I have here, 
 
 //============================================================//
 
 // Post Reflection - Use a confirm dialog box to confirm the post/record your journal entry (if the user selects OK, add post to the array, otherwise if they click cancel start over with prompts and entry)
 
-let pos
+// let postReflection = prompt(` Are you ready to post this journal ${userName} ? `)
+// console.log(postReflection);
 
+// I want to add my journals to my html container once the user finishes entering date
+let journalContent = document.createElement('ul')
+
+let journalText = document.createTextNode('Hi');// I want that data added here
+
+//This will take that text and add it to the unordered list
+journalContent.appendChild(journalText);
+
+// this will add it to the html div
+containerDiv.appendChild(journalContent);
+
+
+
+
+
+
+
+// ================== Dont use =======================//
+// let journalAdd = document.getElementById("journalAdd")
+
+// journalAdd.addEventListener("submit",journalAdd);
+// // this event listener should react when we press submit
+
+// function submitJournal(evt) {
+
+
+// }
+// ================== Dont use =======================//
