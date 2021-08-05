@@ -28,12 +28,20 @@ let myButton = document.getElementById("button")
 myButton.addEventListener('button', main);
 
 function main() {
+    // i am setting my object props w the data from my functions
+    // I am geting the returned value from my functions and setting them here in 
     let creationDate = date();
     // date();
-    console.log(`Your creationDate is : ${creationDate}`);
-    // confidence();
-    journalEntry();
+    console.log(`Your creationDate prop is set to : ${creationDate}`);
+
+    let confidenceLevel = confidence();
+    console.log(`Your confidenceLevel prop is set to : ${confidenceLevel}`);
+
+    let journalEnt = journalEntry();
+    console.log(`Your journalEnt prop is set to : ${journalEnt}`);
+
     postR();
+    // console.log();
 }
 
 // just setting my html div i made
@@ -90,18 +98,18 @@ function confidence() {
         if (userTextInput === 'Low' || userTextInput === 'low') {
             // console.log(userTextInput);       
             confidenceLevel = false;
-            alert(` I'm sorry you feel that way on today ${userName} ! `)
+            alert(` I'm sorry you feel Low today ${userName} ! `)
 
         }
         else if (userTextInput === 'Medium' || userTextInput === 'medium') {
             // console.log(userTextInput);
             confidenceLevel = false;
-            alert(` Okay, you're doing decent on today ${userName} ! `)
+            alert(` Okay, you're doing Medium on today ${userName} ! `)
         }
         else if (userTextInput === 'High' || userTextInput === 'high') {
             // console.log(userTextInput);
             confidenceLevel = false;
-            alert(` Awesome way to feel on today ${userName} ! `)
+            alert(` Awesome , way to feel High today ${userName} ! `)
         }
         //I want this loop broken when entering Q
         //we have to change the userTextInput boolean to fasle to break the loop from true
@@ -117,6 +125,7 @@ function confidence() {
             console.log(`Reached an Error ${userName}, Try again`);
 
         }
+        return userTextInput;
     }
 
 }
@@ -128,8 +137,8 @@ function confidence() {
 // it asks for this 1c
 function journalEntry() {
     let journalEntry = prompt(` Okay ${userName} , Reflect on why you what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! `);
-
     console.log(journalEntry);
+    return journalEntry;
     // Enter in as much text as necessary about what you learned, how you felt, and plans for the upcoming days
 
     // what do I do with what I have here, 
@@ -151,16 +160,18 @@ function postR() {
     
 }
 
+
+//====== Not tounching this yet ! =====//
 // I want to add my journals to my html container once the user finishes entering date
-let journalContent = document.createElement('ul')
+// let journalContent = document.createElement('ul')
 
-let journalText = document.createTextNode('');// I want that data added here
+// let journalText = document.createTextNode('');// I want that data added here
 
-//This will take that text and add it to the unordered list
-journalContent.appendChild(journalText);
+// //This will take that text and add it to the unordered list
+// journalContent.appendChild(journalText);
 
-// this will add it to the html div
-containerDiv.appendChild(journalContent);
+// // this will add it to the html div
+// containerDiv.appendChild(journalContent);
 
 
 
