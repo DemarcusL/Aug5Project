@@ -147,9 +147,8 @@ function postR() {
 
     let postReflection = prompt(` Are you ready to post this journal ${userName} ? `).toLowerCase();
     console.log(postReflection);
-    if (postReflection === "yes") {
-        
-
+    if (postReflection === "yes") {        
+        // I want this function to add my data to my object
         newObject(creationDate, confidenceLevel, journalEnt);
         console.log(journalObjectArray);
     }
@@ -174,15 +173,15 @@ function newObject(creationDate, confidenceLevel, journalEnt) {
 
 //====== Not tounching this yet ! =====//
 // I want to add my journals to my html container once the user finishes entering date
-let journalContent = document.createElement('ul')
+// let journalContent = document.createElement('ul')
 
-let journalText = document.createTextNode('');// I want that data added here
+// let journalText = document.createTextNode('');// I want that data added here
 
-//This will take that text and add it to the unordered list
-journalContent.appendChild(journalText);
+// //This will take that text and add it to the unordered list
+// journalContent.appendChild(journalText);
 
-// this will add it to the html div
-containerDiv.appendChild(journalContent);
+// // this will add it to the html div
+// containerDiv.appendChild(journalContent);
 
 
 
