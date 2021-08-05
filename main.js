@@ -21,6 +21,10 @@
 // Use JavaScript prompts for entering Reflections into your journal
 // Implement the JavaScript necessary to process and validate the submitted data
 // Use JavaScript to create Reflection object instances and display them in the console AND browser
+
+// lets create a value to use when generationg with my div
+let containerDiv = document.getElementById('journalPrint');
+
 let journalEntries = [ // it asks for this array in 5
 
 
@@ -51,9 +55,6 @@ function main() {
     // console.log();
 }
 
-
-// just setting my html div i made
-let containerDiv = document.getElementById('journalPrint');
 
 let userName = prompt('Please , Enter your name to begin .');
 // alert(` Welcome ${userName} to your Day's Journal ! `); 
