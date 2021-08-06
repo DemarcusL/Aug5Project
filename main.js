@@ -30,6 +30,12 @@ let journalEntries = [ // it asks for this array in 5
 
 ];
 
+// let journalString = journalEntries.toString();
+
+// let journalSplit = journalEntries.split(' ');
+
+
+
 // This is the event trigger for my button in the html
 let myButton = document.getElementById("button")
 // this is its listener for that button
@@ -47,9 +53,9 @@ let confidenceLevel = confidence();
 let journalEnt = journalEntry();
 
 function main() {
-       // i am setting my object props w the data from my functions
+    // i am setting my object props w the data from my functions
     // I am geting the returned value from my functions and setting them here in 
-    
+
     // let creationDate = date();
     console.log(`Your creationDate varible is set to : ${creationDate}`);
 
@@ -138,7 +144,7 @@ function confidence() {
 
 // it asks for this 1c
 function journalEntry() {
-    let journalEntry = prompt(` Okay ${userName} , Reflect on why you chose what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! Please press the button under PRESS Here to log your answer !`," Please press the button under PRESS HERE after completing this entry!");
+    let journalEntry = prompt(` Okay ${userName} , Reflect on why you chose what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! Please press the button under PRESS Here to log your answer !`, " Please press the button under PRESS HERE after completing this entry!");
     console.log(` You journal entry was: ${journalEntry}`);
     return journalEntry;
     // Enter in as much text as necessary about what you learned, how you felt, and plans for the upcoming days
@@ -152,12 +158,48 @@ function postR() {
 
     let postReflection = prompt(` Are you ready to post this journal ${userName} ? `).toLowerCase();
     console.log(postReflection);
-    if (postReflection === "yes") {        
+    if (postReflection === "yes") {
         // I want this function to add my data to my object
         // at this point i believe i need to push the info i just gather into an object
         newObject();
         console.log(journalEntries);
+        let journalContent = document.createElement('ul')
+        // it need li elements
+        let journalDate = document.createElement('li')
+        let journalConfidence = document.createElement('li')
+        let journalText = document.createElement('li')
+
+        //using the .string my array method
+        // let journalText = document.createElement('li');
+
+        // This will take that text and add it to the listed li
+        let journalDateContent = document.createTextNode(` Date: ${creationDate}`);
+        let journalConfidenceContent = document.createTextNode(` You were feeling < ${confidenceLevel} > on ${creationDate}`);
+        let journalTextContent = document.createTextNode(` Journal Entry: ${journalEnt} `);
+
+        //using the .string my array method
+        // let journalTextContent = document.createTextNode(journalString);
+
+        // This will add the data to the li elements
+        journalDate.appendChild(journalDateContent);
+        journalConfidence.appendChild(journalConfidenceContent);
+        journalText.appendChild(journalTextContent);
+
+        //using the .string my array method
+        // journalText.appendChild(journalTextContent);
+
+        // this will add the li to the ul
+        journalContent.appendChild(journalDate);
+        journalContent.appendChild(journalConfidence);
+        journalContent.appendChild(journalText);
+
+        //using the .string my array method
+        journalContent.appendChild(journalText)
+
+        // this will add it to the html div
+        containerDiv.appendChild(journalContent);
         return newObject;
+
     }
     else {
 
@@ -171,7 +213,7 @@ function postR() {
 // we will need instances for object literals for our journal entry
 // we want each new journal entry in an object
 // i want this function to create said objects to put into an array
-function newObject(){
+function newObject() {
     let journalObject = {
         // dateObjectProperty: creationDate,
         date: creationDate,
@@ -187,32 +229,44 @@ function newObject(){
     return journalEntries.push(journalObject);
 }
 
-//====== Render on the page =====//
+//====== old Render method before nesting it in my button function on the page =====//
 // I want to add my journals to my html container once the user finishes entering date
 // create a ul elemtent to hold the li content
-let journalContent = document.createElement('ul')
+// let journalContent = document.createElement('ul')
+// // it need li elements
+// let journalDate = document.createElement('li')
+// let journalConfidence = document.createElement('li')
+// let journalText = document.createElement('li')
 
-let journalList = document.createElement('li')
+// //using the .string my array method
+// // let journalText = document.createElement('li');
 
-let journalText = document.createTextNode(journalEntries);// I want that data added here
+// // This will take that text and add it to the listed li
+// let journalDateContent = document.createTextNode(` Date: ${creationDate}`); 
+// let journalConfidenceContent = document.createTextNode(` You were feeling < ${confidenceLevel} > on ${creationDate}`);
+// let journalTextContent = document.createTextNode(` Journal Entry: ${journalEnt} `);
 
+// //using the .string my array method
+// // let journalTextContent = document.createTextNode(journalString);
 
-//This will take that text and add it to the unordered list
-journalList.appendChild(journalText);
+// // This will add the data to the li elements
+// journalDate.appendChild(journalDateContent);
+// journalConfidence.appendChild(journalConfidenceContent);
+// journalText.appendChild(journalTextContent);
 
-journalContent.appendChild(journalList);
+// //using the .string my array method
+// // journalText.appendChild(journalTextContent);
 
-// this will add it to the html div
-containerDiv.appendChild(journalContent);
+// // this will add the li to the ul
+// journalContent.appendChild(journalDate);
+// journalContent.appendChild(journalConfidence);
+// journalContent.appendChild(journalText);
 
+// //using the .string my array method
+// journalContent.appendChild(journalText)
 
-
-
-
-
-
-// journalAdding();
-// date();
+// // this will add it to the html div
+// containerDiv.appendChild(journalContent);
 
 
 // ================== Dont use =======================//
