@@ -30,41 +30,46 @@ let journalEntries = [ // it asks for this array in 5
 
 ];
 
-let journalObjectArray = [
-
-];
-
 // This is the event trigger for my button in the html
 let myButton = document.getElementById("button")
 // this is its listener for that button
 myButton.addEventListener('button', main);
 
+//======Important======// 
+// By placing these lets here, i can gather the info, then set all of it when the butto is pressed
+let userName = prompt('Please , Enter your name to begin .');
+// alert(` Welcome ${userName} to your Day's Journal ! `); 
+alert(` Welcome ${userName} , Please follow instructions to assist with your journal making process ! `);
+console.log(` Your name is ${userName}`);
 
+let creationDate = date();
+let confidenceLevel = confidence();
+let journalEnt = journalEntry();
 
 function main() {
-    // I have my functions here to streamline when events happen
-    // i am setting my object props w the data from my functions
+       // i am setting my object props w the data from my functions
     // I am geting the returned value from my functions and setting them here in 
+    
+    // let creationDate = date();
+    console.log(`Your creationDate varible is set to : ${creationDate}`);
+
+
+    // let confidenceLevel = confidence();
+    console.log(`Your confidenceLevel variable is set to : ${confidenceLevel}`);
+
+    // let journalEnt = journalEntry();
+    console.log(`Your journalEnt variable is set to : ${journalEnt}`);
+
     // we need to push the values into an object literal, than push that literal into an array
-    let creationDate = date();
-    console.log(`Your creationDate prop is set to : ${creationDate}`);
-
-
-    let confidenceLevel = confidence();
-    console.log(`Your confidenceLevel prop is set to : ${confidenceLevel}`);
-
-    let journalEnt = journalEntry();
-    console.log(`Your journalEnt prop is set to : ${journalEnt}`);
-
     postR();
     // console.log();
 }
 
 
-let userName = prompt('Please , Enter your name to begin .');
-// alert(` Welcome ${userName} to your Day's Journal ! `); 
-alert(` Welcome ${userName} , Please press the button on the page to begin a journal entry! `);
-console.log(` Your name is ${userName}`);
+// let userName = prompt('Please , Enter your name to begin .');
+// // alert(` Welcome ${userName} to your Day's Journal ! `); 
+// alert(` Welcome ${userName} , Please press the button on the page to begin a journal entry! `);
+// console.log(` Your name is ${userName}`);
 
 
 // Creation Date - Prompt for a date
@@ -89,7 +94,7 @@ function confidence() {
     // i need a while loop to run the questions for low, med, high
     while (confidenceLevel == true) {
         //I want this inside the loop to continuous be asked this prompt until it is broken with Quit or cancel
-        let userTextInput = prompt(` Enter: Low / Medium / High : for how you are feeling ${userName} on OR Enter Q to stop.`);
+        let userTextInput = prompt(` Enter: Low / Medium / High : for how you are feeling ${userName} on today OR Enter Q to stop.`);
         //This is where we are setting this conditional for what ever string we are entering
         // because on line 90 we 
         if (userTextInput === 'Low' || userTextInput === 'low') {
@@ -133,8 +138,8 @@ function confidence() {
 
 // it asks for this 1c
 function journalEntry() {
-    let journalEntry = prompt(` Okay ${userName} , Reflect on why you what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! `);
-    console.log(journalEntry);
+    let journalEntry = prompt(` Okay ${userName} , Reflect on why you chose what you did. Describe how that rating makes you feel,why you chose that, how it makes you feel to have that rating, and plans for the upcoming days either change it or keep it the same! Please press the button under PRESS Here to log your answer !`," Please press the button under PRESS HERE after completing this entry!");
+    console.log(` You journal entry was: ${journalEntry}`);
     return journalEntry;
     // Enter in as much text as necessary about what you learned, how you felt, and plans for the upcoming days
 
@@ -149,8 +154,10 @@ function postR() {
     console.log(postReflection);
     if (postReflection === "yes") {        
         // I want this function to add my data to my object
-        newObject(creationDate, confidenceLevel, journalEnt);
-        console.log(journalObjectArray);
+        // at this point i believe i need to push the info i just gather into an object
+        newObject();
+        console.log(journalEntries);
+        return newObject;
     }
     else {
         console.log('error');
@@ -162,13 +169,21 @@ function postR() {
 // lets create an object literal
 // we will need instances for object literals for our journal entry
 // we want each new journal entry in an object
-function newObject(creationDate, confidenceLevel, journalEnt) {
+// i want this function to create said objects to put into an array
+function newObject(){
     let journalObject = {
-        dateObjectProperty: creationDate,
-        confidenceObjectProperty: confidenceLevel,
-        journalObjectProperty: journalEnt
+        // dateObjectProperty: creationDate,
+        date: creationDate,
+        // confidenceObjectProperty: confidenceLevel,
+        confidence: confidenceLevel,
+        // journalObjectProperty: journalEnt
+        journal: journalEnt,
+        // makeObject() {
+        //     return journalObjectArray.push(journalObject);
+        // }
     }
-    return journalObjectArray.push(journalObject);
+    // return journalObjectArray.push(journalObject);
+    return journalEntries.push(journalObject);
 }
 
 //====== Not tounching this yet ! =====//
