@@ -2,3 +2,18 @@
 body {
 background-color: darksalmon;
 }
+
+div {
+text-align: center;
+
+}
+
+ul {
+margin: 2px;
+border: 1px;
+border-color: white;
+padding: 3%;
+background-color: rgb(173, 111, 90);
+color: white;
+
+}
