@@ -160,6 +160,7 @@ function postR() {
         return newObject;
     }
     else {
+
         console.log('error');
     }
 
@@ -186,17 +187,23 @@ function newObject(){
     return journalEntries.push(journalObject);
 }
 
-//====== Not tounching this yet ! =====//
+//====== Render on the page =====//
 // I want to add my journals to my html container once the user finishes entering date
-// let journalContent = document.createElement('ul')
+// create a ul elemtent to hold the li content
+let journalContent = document.createElement('ul')
 
-// let journalText = document.createTextNode('');// I want that data added here
+let journalList = document.createElement('li')
 
-// //This will take that text and add it to the unordered list
-// journalContent.appendChild(journalText);
+let journalText = document.createTextNode(journalEntries);// I want that data added here
 
-// // this will add it to the html div
-// containerDiv.appendChild(journalContent);
+
+//This will take that text and add it to the unordered list
+journalList.appendChild(journalText);
+
+journalContent.appendChild(journalList);
+
+// this will add it to the html div
+containerDiv.appendChild(journalContent);
 
 
 
