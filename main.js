@@ -165,16 +165,16 @@ function postR() {
         console.log(journalEntries);
         let journalContent = document.createElement('ul')
         // it need li elements
-        let journalDate = document.createElement('li')
-        let journalConfidence = document.createElement('li')
-        let journalText = document.createElement('li')
+        let journalDate = document.createElement('ol')
+        let journalConfidence = document.createElement('ol')
+        let journalText = document.createElement('ol')
 
         //using the .string my array method
         // let journalText = document.createElement('li');
 
         // This will take that text and add it to the listed li
         let journalDateContent = document.createTextNode(` Date: ${creationDate}`);
-        let journalConfidenceContent = document.createTextNode(` You were feeling < ${confidenceLevel} > on ${creationDate}`);
+        let journalConfidenceContent = document.createTextNode(` You rated your confidence: ${confidenceLevel} on ${creationDate}`);
         let journalTextContent = document.createTextNode(` Journal Entry: ${journalEnt} `);
 
         //using the .string my array method
@@ -198,6 +198,7 @@ function postR() {
 
         // this will add it to the html div
         containerDiv.appendChild(journalContent);
+        // it wouldn't let this run until i put the return under everything
         return newObject;
 
     }
