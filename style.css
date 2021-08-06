@@ -18,7 +18,12 @@ text-align: center;
     margin-bottom: 10px;
 }
 
+#button {
+font-family: 'STIX Two Text', serif;
+}
+
 ul {
+font-family: 'Roboto', sans-serif;
 margin: 2px;
 border: 1px;
 border-color: white;

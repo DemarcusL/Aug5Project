@@ -173,9 +173,9 @@ function postR() {
         // let journalText = document.createElement('li');
 
         // This will take that text and add it to the listed li
-        let journalDateContent = document.createTextNode(` Date: ${creationDate}`);
-        let journalConfidenceContent = document.createTextNode(` You rated your confidence: ${confidenceLevel} on ${creationDate}`);
-        let journalTextContent = document.createTextNode(` Journal Entry: ${journalEnt} `);
+        let journalDateContent = document.createTextNode(` Date : ${creationDate}`);
+        let journalConfidenceContent = document.createTextNode(` You rated your confidence : ${confidenceLevel} on ${creationDate}`);
+        let journalTextContent = document.createTextNode(` Journal Entry : ${journalEnt} `);
 
         //using the .string my array method
         // let journalTextContent = document.createTextNode(journalString);
